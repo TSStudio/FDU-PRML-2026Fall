@@ -41,13 +41,12 @@ def __info_gain(y, l_y, r_y):
 
     y, l_y, r_y: label array of father node, left child node, right child node
     """
-    all_labels, left_labels, right_labels = __label_stat(y, l_y, r_y)
-    info_gain = 0.0
-    # =============== TODO (students) ===============
+    def entropy(counts):
+        total = sum(counts.values())
+        return -sum((n / total) * math.log2(n / total)
+                    for n in counts.values()) if total else 0.0
 
-    # ===============================================
-    raise NotImplementedError("Implement __info_gain")
-    return info_gain
+    return __impurity_decrease(y, l_y, r_y, entropy)
 
 
 def __info_gain_ratio(y, l_y, r_y):
@@ -57,11 +56,13 @@ def __info_gain_ratio(y, l_y, r_y):
     y, l_y, r_y: label array of father node, left child node, right child node
     """
     info_gain = __info_gain(y, l_y, r_y)
-    # =============== TODO (students) ===============
-
-    # ===============================================
-    raise NotImplementedError("Implement __info_gain_ratio")
-    return info_gain
+    n_left, n_right = l_y.size, r_y.size
+    total = n_left + n_right
+    if not n_left or not n_right:
+        return 0.0
+    split_info = -sum((n / total) * math.log2(n / total)
+                      for n in (n_left, n_right))
+    return info_gain / split_info
 
 
 def __gini_index(y, l_y, r_y):
@@ -70,25 +71,30 @@ def __gini_index(y, l_y, r_y):
 
     y, l_y, r_y: label array of father node, left child node, right child node
     """
-    all_labels, left_labels, right_labels = __label_stat(y, l_y, r_y)
-    before = 0.0
-    after = 0.0
+    def gini(counts):
+        total = sum(counts.values())
+        return 1.0 - sum((n / total) ** 2 for n in counts.values()) if total else 0.0
 
-    # =============== TODO (students) ===============
-
-    # ===============================================
-    raise NotImplementedError("Implement __gini_index")
-    return before - after
+    return __impurity_decrease(y, l_y, r_y, gini)
 
 
 def __error_rate(y, l_y, r_y):
     """Calculate the error rate"""
+    def error(counts):
+        total = sum(counts.values())
+        return 1.0 - max(counts.values()) / total if total else 0.0
+
+    return __impurity_decrease(y, l_y, r_y, error)
+
+
+def __impurity_decrease(y, l_y, r_y, impurity):
+    """Parent impurity minus child impurities weighted by sample counts."""
     all_labels, left_labels, right_labels = __label_stat(y, l_y, r_y)
-    before = 0.0
-    after = 0.0
-
-    # =============== TODO (students) ===============
-
-    # ===============================================
-    raise NotImplementedError("Implement __error_rate")
-    return before - after
+    total = sum(all_labels.values())
+    n_left, n_right = sum(left_labels.values()), sum(right_labels.values())
+    # An empty child does not constitute a useful binary split.
+    if total == 0 or n_left == 0 or n_right == 0:
+        return 0.0
+    return (impurity(all_labels)
+            - n_left / total * impurity(left_labels)
+            - n_right / total * impurity(right_labels))

@@ -1,6 +1,7 @@
 from __future__ import annotations
 import math, os, numpy as np, matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
+from matplotlib.ticker import MaxNLocator
 
 def plot_k_curve(ks, accs, out_path: str):
     ks = np.asarray(list(ks))
@@ -9,12 +10,21 @@ def plot_k_curve(ks, accs, out_path: str):
     ks, accs = ks[order], accs[order]
 
     fig, ax = plt.subplots()
-    ax.plot(ks, accs, marker="o")
+    ax.plot(ks, accs, marker="o" if len(ks) <= 15 else None)
+    if len(ks) > 15:
+        best_index = int(np.argmax(accs))
+        ax.scatter(ks[best_index], accs[best_index], color="tab:red", zorder=3)
+        ax.text(0.97, 0.96, f"best k={ks[best_index]}, acc={accs[best_index]:.3f}",
+                transform=ax.transAxes, ha="right", va="top", fontsize=9,
+                bbox=dict(facecolor="white", edgecolor="none", alpha=0.9))
     ax.set_xlabel("k")
     ax.set_ylabel("Validation Accuracy")
     ax.set_title("kNN: Validation Accuracy vs k")
 
-    ax.set_xticks(ks)
+    if len(ks) <= 15:
+        ax.set_xticks(ks)
+    else:
+        ax.xaxis.set_major_locator(MaxNLocator(nbins=6, integer=True))
     ax.set_xlim(ks.min() - 0.5, ks.max() + 0.5)
 
     ax.grid(True, axis="y", linestyle="--", alpha=0.3)
@@ -86,7 +96,8 @@ def plot_decision_boundary_multi(predict_fn_for_k,
         if np.any(mis):
             ax.scatter(X_test[mis,0], X_test[mis,1], marker="x", s=45, linewidths=1.4, c="k", label="Miscls.")
 
-        ax.set_title(f"K = {k}")
+        accuracy = float(np.mean(y_pred_test == y_test))
+        ax.set_title(f"K = {k} | test acc = {accuracy:.3f}", fontsize=11)
         ax.set_xlabel("x1"); ax.set_ylabel("x2")
         ax.set_xlim(x_min, x_max); ax.set_ylim(y_min, y_max)
         ax.set_aspect("equal", adjustable="box")

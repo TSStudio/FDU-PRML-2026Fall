@@ -1,0 +1,18 @@
+[ModelSelect] metric=l2 best k=12 (val acc=0.8560)
+[TestDiagnostic] metric=l2 k=1 correct=98/125 acc=0.7840
+[TestDiagnostic] metric=l2 k=12 correct=97/125 acc=0.7760
+[TestDiagnostic] metric=l2 k=51 correct=99/125 acc=0.7920
+[TestDiagnostic] metric=l2 k=151 correct=100/125 acc=0.8000
+[TestDiagnostic] metric=l2 k=225 correct=96/125 acc=0.7680
+[TestDiagnostic] metric=l2 k=250 correct=95/125 acc=0.7600
+[TestDiagnostic] metric=l2 k=375 correct=31/125 acc=0.2480
+[Figure] saved -> ./output/knn_boundary_grid_l2.png
+[ModelSelect] metric=cosine best k=13 (val acc=0.8240)
+[TestDiagnostic] metric=cosine k=1 correct=83/125 acc=0.6640
+[TestDiagnostic] metric=cosine k=13 correct=96/125 acc=0.7680
+[TestDiagnostic] metric=cosine k=51 correct=96/125 acc=0.7680
+[TestDiagnostic] metric=cosine k=151 correct=96/125 acc=0.7680
+[TestDiagnostic] metric=cosine k=225 correct=94/125 acc=0.7520
+[TestDiagnostic] metric=cosine k=250 correct=92/125 acc=0.7360
+[TestDiagnostic] metric=cosine k=375 correct=31/125 acc=0.2480
+[Figure] saved -> ./output/knn_boundary_grid_cosine.png

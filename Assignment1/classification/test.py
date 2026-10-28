@@ -8,8 +8,8 @@ import accuracy_error as acc_err
 import evaluation_metrics as metrics
 
 # ============== 学生信息（请填写） ==============
-STUDENT_NAME = "张三"  # 例如：张三
-STUDENT_ID = "2026123456"  # 例如：2026123456
+STUDENT_NAME = "佟铭洋"
+STUDENT_ID = "23300240009"
 # ==============================================
 
 

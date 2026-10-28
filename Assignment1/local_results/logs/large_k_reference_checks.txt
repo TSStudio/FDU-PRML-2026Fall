@@ -1,0 +1,5 @@
+l2 selected and large-k validation predictions match sklearn: PASS
+l2 all-neighbor endpoints: fixed label 1, 31/125 = 0.2480: PASS
+cosine selected and large-k validation predictions match sklearn: PASS
+cosine all-neighbor endpoints: fixed label 1, 31/125 = 0.2480: PASS
+Large-k reference checks passed.

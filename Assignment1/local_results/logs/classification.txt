@@ -1,0 +1,12 @@
+============================================================
+实验：Part 1 - 分类评测指标
+姓名：佟铭洋    学号：23300240009
+时间：2026-10-06 10:06:45
+============================================================
+[BASIC] accuracy / MSE
+ - accuracy expected 0.75 -> got 0.75 : PASS
+ - mse      expected 0.6667 -> got 0.6667 : PASS
+[PRF] precision / recall / f1 (binary)
+ - precision expected 0.50 -> got 0.50 : PASS
+ - recall    expected 0.50 -> got 0.50 : PASS
+ - f1        expected 0.50 -> got 0.50 : PASS

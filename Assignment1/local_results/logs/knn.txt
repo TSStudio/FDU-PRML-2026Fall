@@ -1,0 +1,29 @@
+======================================================================
+实验：Part 3 - kNN 分类
+姓名：佟铭洋    学号：23300240009    时间：2026-10-06 10:07:12
+======================================================================
+[DATA] Summary
+ - train = 250, val = 125, test = 125, D = 2, classes = 4
+   · train per-class: class 0: 62, class 1: 63, class 2: 62, class 3: 63
+   · val per-class: class 0: 31, class 1: 31, class 2: 32, class 3: 31
+   · test per-class: class 0: 32, class 1: 31, class 2: 31, class 3: 31
+----------------------------------------------------------------------
+[DIST] L2 two_loops vs no_loops
+ - shape: (2, 4), max|diff| = 0.000e+00  -> PASS
+[DIST] Cosine basic case
+ - expected = [0.292893, 0.292893], got = [0.292893, 0.292893]  -> PASS
+----------------------------------------------------------------------
+[PRED] sanity checks (k=1 / k=3 / tie rule)
+ - k=1 pred = [0, 1, 0]  (expect [0,1,0])  -> PASS
+ - k=3 pred = [0, 1, 0]  (expect [0,1,0])  -> PASS
+ - tie case (k=4) -> pred = 0 (expect 0) -> PASS
+----------------------------------------------------------------------
+[MODEL SELECTION] validation curve
+ - ks & val_accs: k=1:0.7840, k=3:0.7840, k=5:0.8080, k=7:0.7920, k=9:0.8080, k=11:0.8240, k=13:0.8240
+ - best_k = 11 (val_acc = 0.8240)
+----------------------------------------------------------------------
+[E2E] train+val -> test (metric=l2, mode=no_loops)
+ - test_acc(best_k=11) = 0.8080
+======================================================================
+All kNN tests passed.
+

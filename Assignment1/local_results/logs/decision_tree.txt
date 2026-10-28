@@ -1,0 +1,72 @@
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/tmy_sam/.cache/fontconfig
+	/Users/tmy_sam/.fontconfig
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/tmy_sam/.cache/fontconfig
+	/Users/tmy_sam/.fontconfig
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/tmy_sam/.cache/fontconfig
+	/Users/tmy_sam/.fontconfig
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/tmy_sam/.cache/fontconfig
+	/Users/tmy_sam/.fontconfig
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/tmy_sam/.cache/fontconfig
+	/Users/tmy_sam/.fontconfig
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/tmy_sam/.cache/fontconfig
+	/Users/tmy_sam/.fontconfig
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/tmy_sam/.cache/fontconfig
+	/Users/tmy_sam/.fontconfig
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/tmy_sam/.cache/fontconfig
+	/Users/tmy_sam/.fontconfig
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/tmy_sam/.cache/fontconfig
+	/Users/tmy_sam/.fontconfig
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/tmy_sam/.cache/fontconfig
+	/Users/tmy_sam/.fontconfig
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/tmy_sam/.cache/fontconfig
+	/Users/tmy_sam/.fontconfig
+Matplotlib is building the font cache; this may take a moment.
+
+=== Criterion: info_gain ===
+Accuracy: 0.9167
+Tree depth: 5; leaves: 8
+
+=== Criterion: info_gain_ratio ===
+Accuracy: 0.9444
+Tree depth: 7; leaves: 9
+
+=== Criterion: gini ===
+Accuracy: 0.8611
+Tree depth: 6; leaves: 11
+
+=== Criterion: error_rate ===
+Accuracy: 0.8889
+Tree depth: 5; leaves: 9
